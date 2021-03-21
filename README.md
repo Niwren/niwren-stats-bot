@@ -1,30 +1,33 @@
-# hello-express
+# niwren-supervizor-bot
 
-A server that serves a webpage, its resources, and some data
+Altyapının amacı bir sunucuda birden fazla bot yerine tek bir bot olmasını sağlamaktır şuan botun içinde moderasyon, istatistik ve kayıt olmak üzere 3 bot vardır. 
 
+# Telif
+İzinsiz paylaşıldığında telif işlemi uygulanır
+Kod sunucularında görürsem telif işlemi uygulanır
 
-## Your Project
+## Kurulum
 
-On the front-end,
+Eğer direk projeyi kurucaksanız tek yapmanız gereken server.js ve komutlar klasöründeki bir kaç dasyayı doldurmak.
 
-- Edit `views/index.html` to change the content of the webpage
-- `public/client.js` is the javacript that runs when you load the webpage
-- `public/style.css` is the styles for `views/index.html`
-- Drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy.
+```js
+server.js
+```
+## Sıkça Sorulabilicek Sorular
 
 
-## Made by [Glitch](https://glitch.com/)
+### Kod Dosyalarını Nasıl Kurucam?
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+Tek yapmanız gereken dosyalardaki ID kısımlarını doldurmak, server.js'ye atılıcak bir kod yoktur.
 
-Find out more [about Glitch](https://glitch.com/about).
+### Sana bir sorum vardı?
 
-( ᵔ ᴥ ᵔ )
+Niwren.#0901 (676128212681490459) Discord hesabıma ulaşabilirsiniz, eğer ulaşamazsanız [discord.gg/serendia](https://discord.gg/serendia)'ya sorun, yol göstereceklerdir.
+
+### Bir hata buldum?
+
+Bana ulaşın, elimden geldiğince hızlı çözerim.
+
+## Serendia Ailesine ve ordan bu altyapıyı isteyenlere Sevgilerle <3
+![Serendia](standard_11.gif)
+
