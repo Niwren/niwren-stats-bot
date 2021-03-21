@@ -1,4 +1,4 @@
-# niwren-supervizor-bot
+# niwren-stats-bot
 
 Altyapının amacı bir sunucuda birden fazla bot yerine tek bir bot olmasını sağlamaktır şuan botun içinde moderasyon, istatistik ve kayıt olmak üzere 3 bot vardır. 
 
