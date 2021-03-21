@@ -12,7 +12,6 @@ fs.readdirSync('./commands', {encoding: 'utf8'}).filter(file => file.endsWith(".
   commands.set(command.name, command);
 })
 
-client.rewards = [{ role: "785163569502617650", ses: 10000, yazı: 1000 }] // sesdeki 10000 = 10 saniye 
 
 client.on('ready',() => {
   console.log("I'm Ready!")
