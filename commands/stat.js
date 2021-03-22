@@ -49,32 +49,33 @@ module.exports = {
                 let message14 = messageData0.filter(data => (Date.now() - (86400000 * 30)) < data.time).reduce((a, b) => a + b.puan, 0);
                 let message7 = messageData0.filter(data => (Date.now() - (86400000 * 7)) < data.time).reduce((a, b) => a + b.puan, 0);
                 let message24 = messageData0.filter(data => (Date.now() - 86400000) < data.time).reduce((a, b) => a + b.puan, 0);
+                let totalmessage = messageData0.filter(data => (Date.now())).reduce((a, b) => a + b.puan, 0);
 
                 let ses14 = voiceData0.filter(data => (Date.now() - (86400000 * 30)) < data.time).reduce((a, b) => a + b.puan, 0);
                 let ses7 = voiceData0.filter(data => (Date.now() - (86400000 * 7)) < data.time).reduce((a, b) => a + b.puan, 0);
                 let ses24 = voiceData0.filter(data => (Date.now() - 86400000) < data.time).reduce((a, b) => a + b.puan, 0);
-                let davetsayi = db.fetch(`davetsayi.${member.id}.${message.guild.id}`)
+                let totalVoice = voiceData0.filter(data => (Date.now())).reduce((a, b) => a + b.puan, 0);
 
                 const embed = new MessageEmbed()
                     .setColor('BLACK')
                     .setThumbnail(member.avatarURL({ dynamic: true }))
                     .setDescription(`${member} - (${member.id})\n\nSon 14 Gün içindeki kullanıcı ses ve chat istatistikleri.
                    
-                    \`Genel ses istatistikleri:\` ${moment.duration(dataVoice).format("M [Ay], W [Hafta], DD [Gün], HH [Saat], mm [Dakika], ss [Saniye]")} 
-                    \`Genel text istatistikleri:\` ${dataMessage} mesaj
+                    \`Genel ses istatistikleri:\` ${moment.duration(totalVoice).format("HH [Saat], mm [Dakika]")} 
+                    \`Genel text istatistikleri:\` ${totalmessage} mesaj
                    
                    
                     \`Günlük Ses Ve Text İstatistikleri:\`
 					⦁ **Text**: ${message24} mesaj
-					⦁ **Voice**${moment.duration(ses24).format("M [Ay], W [Hafta], DD [Gün], HH [Saat], mm [Dakika], ss [Saniye]")} 
+					⦁ **Voice**: ${moment.duration(ses24).format("HH [Saat], mm [Dakika]")} 
                    \`Haftalık Ses Ve Text İstatistikleri:\`
 				    ⦁ **Text**: ${message7} mesaj
-					⦁ **Voice**: ${moment.duration(ses7).format("M [Ay], W [Hafta], DD [Gün], HH [Saat], mm [Dakika], ss [Saniye]")} 
+					⦁ **Voice**: ${moment.duration(ses7).format("HH [Saat], mm [Dakika]")} 
                    \`Aylık Ses Ve Text İstatistikleri:\` 
 				    ⦁ **Text**: ${message14} mesaj
-					⦁ **Voice**: ${moment.duration(ses14).format("M [Ay], W [Hafta], DD [Gün], HH [Saat], mm [Dakika], ss [Saniye]")} 
+					⦁ **Voice**: ${moment.duration(ses14).format("HH [Saat], mm [Dakika]")} 
                    
-                   \` Aktif Olduğu Ses kanalı\` ${voiceData[0] ? `<#${voiceData[0].channelID}>` : 'Veri Yok!'}: \`${voiceData[0] ? moment.duration(voiceData[0].totalTime).format("M [Ay], W [Hafta], DD [Gün], HH [Saat], mm [Dakika], ss [Saniye]") : 'Veri Yok!'}\`
+                   \` Aktif Olduğu Ses kanalı\` ${voiceData[0] ? `<#${voiceData[0].channelID}>` : 'Veri Yok!'}: \`${voiceData[0] ? moment.duration(voiceData[0].totalTime).format("HH [Saat], mm [Dakika]") : 'Veri Yok!'}\`
                    \` Aktif Olduğu Text kanalı\` ${messageData[0] ? `<#${messageData[0].channelID}>` : "Veri Yok"}: \`${messageData[0] ? messageData[0].totalMessage : 0} Mesaj\``)
     .setFooter(client.user.username, client.user.avatarURL())
     .setTimestamp()
