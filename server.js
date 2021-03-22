@@ -14,8 +14,8 @@ fs.readdirSync('./commands', {encoding: 'utf8'}).filter(file => file.endsWith(".
 
 
 client.on('ready',() => {
-  console.log("I'm Ready!")
-  client.user.setStatus("dnd")
+    console.log("I'm Ready!")
+    client.user.setPresence({ activity: { name: 'Niwren ❤️ Serendia' }, status: 'idle' })
 })
 
  client.on('message', async function(message){
@@ -29,24 +29,9 @@ client.on('ready',() => {
 
 
 client.on('message', async(message) => {
-  if(!message.guild || message.author.bot || message.content.startsWith("!")) return;
+  if(!message.guild || message.author.bot || message.content.startsWith(client.prefix)) return;
   db.add(`messageData.${message.author.id}.channel.${message.channel.id}`, 1);
   db.push(`messageData.${message.author.id}.times`, {time: Date.now(), puan: 1})
-  let dataOne = db.get(`messageData.${message.author.id}`) || {}
-  let dataMessage =  Object.keys(dataOne).map(data => { return Object.values(dataOne[data]).reduce((a, b) => a + b, 0) })[0];
-
-  let dataTwo = db.get(`voiceData.${message.author.id}`) || {}
-  let dataVoice =  Object.keys(dataTwo).map(data => { return Object.values(dataTwo[data]).reduce((a, b) => a + b, 0) })[0];
-   console.log(dataVoice)
-  if(client.rewards.length >= 1){
-    client.rewards.forEach(data => {
-      if(dataMessage >= data.yazı){
-        message.member.roles.add(data.role)
-      } else if(dataVoice >= data.ses){
-        message.member.roles.add(data.role)
-      }
-    }) 
-  }
 })
 
 const Activites = new Map();
@@ -75,4 +60,4 @@ client.on('voiceStateUpdate', (oldState, newState) => {
   
 })
 
-client.login('')
+client.login('ODE3NDU0NzI3NDM1NzgwMTU3.YEJwCg.EjPkRHj6e3PIfacrLtY9J6CO_ho')
